@@ -1,0 +1,3 @@
+google-test/gtest-1.7.0/*
+*.a
+*.o
