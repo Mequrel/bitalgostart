@@ -7,12 +7,14 @@
 GTEST_DIR = ../google-test
 include $(GTEST_DIR)/TestSettings
 
-# All tests produced by this Makefile. 
-# Remember to add new tests you created to the list.
 TESTS = is_prime_unittest
 
 # House-keeping build targets.
-all : $(TESTS)
+all : build test
+
+build : $(TESTS)
+
+test : $(TESTS:unittest=unittest-run)
 
 clean :
 	rm -f $(TESTS) *.o
@@ -29,3 +31,6 @@ is_prime_unittest.o : is_prime_unittest.cpp is_prime.h
 
 is_prime_unittest : is_prime.o is_prime_unittest.o $(GTEST_MAIN)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+is_prime_unittest-run : is_prime_unittest
+	./is_prime_unittest
