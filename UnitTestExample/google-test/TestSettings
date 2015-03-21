@@ -1,7 +1,6 @@
 CPPFLAGS += -isystem $(GTEST_DIR)/gtest-1.7.0/include
 CXXFLAGS += -g -Wall -Wextra -pthread
 
-GTEST_DIR = google-test
 GTEST_HEADERS = $(GTEST_DIR)/gtest-1.7.0/include/gtest/*.h \
                 $(GTEST_DIR)/gtest-1.7.0/include/gtest/internal/*.h
 GTEST_MAIN = $(GTEST_DIR)/gtest_main.a
